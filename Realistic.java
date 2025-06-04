@@ -1,5 +1,6 @@
 import java.util.Arrays; // for printing array
-
+/*the reason for using arr.length on line 83 - arr.Lenght is used to show the size of a the original array so you can create temp array with +1 to accomodate a new element. This creates the new Array +1 (the new size). After it is assigned to temporary[arr.length] which makes sure no data is lost or overwritten.
+*/
 /**
  * A class to demonstrate minimum heap operations using arrays
  */
@@ -64,7 +65,21 @@ public class Realistic {
         // replace principal array with temporary array.
         arr = temporary;
         return result; // smallest element
-    } // method getSmallest
+    } 
+    /**
+     * Removes and returns the smallest element from arr[] as an int. object.  
+     * If arr is empty, returns nothing.                                            
+     *
+     */                                                                          
+    public static Integer remove() {                                            
+        if (arr.length == 0) {                                                   
+            return null;                                                        
+        }                                                                       
+        return getSmallest(); // getSmallest() already removes the element       
+    }                                                                             
+
+    /**
+    // method getSmallest
 
     /**
      * Adds a new element to the end of the principal array arr after it resizes up
@@ -92,5 +107,8 @@ public class Realistic {
         System.out.printf("\nSmallest element found: %d", getSmallest());
         System.out.printf("\nArray after removal of smallest element: %s\n\n",
                 Arrays.toString(arr));
+        // Prints array after smallest element has been removed 
+        System.out.printf("\nRemove method returned: %s", remove());               
+        System.out.printf("\nArray after using remove method: %s\n", Arrays.toString(arr)); 
     } // method main
 } // class Realistic
